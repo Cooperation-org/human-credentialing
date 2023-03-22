@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  credential-input:
+    volumes:
+      - ./credential-input:/usr/src/app
+      - /usr/src/app/node_modules
+    command: ["yarn", "start"]
+
+  credential-oracle:
+    volumes:
+      - ./credential-oracle:/usr/src/app
+      - /usr/src/app/node_modules
+    command: ["yarn", "dev"]

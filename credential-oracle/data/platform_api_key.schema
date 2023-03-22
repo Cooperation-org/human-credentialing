@@ -1,0 +1,7 @@
+type PlatformApiKey @createModel(
+    accountRelation: LIST,
+    description: "Client Api Key"
+) {
+    platform: String! @string(minLength: 1, maxLength: 255)
+    hashed_api_key: String! @string(minLength: 1, maxLength: 64) 
+}

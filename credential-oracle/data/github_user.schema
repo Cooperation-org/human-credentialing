@@ -1,0 +1,30 @@
+type GithubAchievement {
+    name: String! @string(minLength: 1, maxLength: 255)
+    x_val: Int!
+}
+
+type GithubUser @createModel(
+    accountRelation: LIST,
+    description: "Github user details"
+) {
+    user_account: String! @string(minLength: 1, maxLength: 255)
+    login: String! @string(minLength: 1, maxLength: 255) 
+    github_id: Int!
+    url: String! @string(minLength: 1, maxLength: 255)
+    type: String! @string(minLength: 1, maxLength: 255)
+    site_admin: Boolean 
+    name: String @string(minLength: 1, maxLength: 1000) 
+    company: String @string(maxLength: 255) 
+    blog: String @string(maxLength: 1000) 
+    location: String @string(maxLength: 1000) 
+    email: String @string(minLength: 1, maxLength: 255)
+    hireable: Boolean 
+    bio: String @string(maxLength: 5000)
+    twitter_username: String @string(maxLength: 255)
+    public_repos: Int
+    public_gists: Int
+    followers: Int
+    following: Int
+    created_at: String! @string(maxLength: 255)
+    achievements: [GithubAchievement] @list(maxLength: 20)
+}

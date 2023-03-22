@@ -1,0 +1,38 @@
+{
+  "name": "credential-oracle",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "migrate": "prisma migrate deploy",
+    "dev": "npm run migrate && nodemon src/index.js",
+    "start": "npm run migrate && node src/index.js",
+    "merge:composites": "node scripts/merge_composites.mjs",
+    "deploy:composite": "node scripts/deploy.mjs",
+    "runtime:composite": "node scripts/create_runtime_definition.mjs",
+    "graphiql": "node graphiql_server/graphiql.js"
+  },
+  "dependencies": {
+    "@ceramicnetwork/http-client": "^2.5.0",
+    "@composedb/devtools": "^0.3.0",
+    "@composedb/devtools-node": "^0.3.0",
+    "@prisma/client": "^4.8.0",
+    "@whatscookin/github_user_badge_scraper": "^1.0.3",
+    "axios": "^1.1.2",
+    "cors": "^2.8.5",
+    "dids": "^3.4.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.1",
+    "key-did-provider-ed25519": "^2.0.1",
+    "key-did-resolver": "^2.1.3",
+    "node-cache": "^5.1.2",
+    "puppeteer": "^19.2.2",
+    "rand-user-agent": "^1.0.90",
+    "uint8arrays": "^4.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20",
+    "prisma": "^4.8.0"
+  }
+}

@@ -1,0 +1,45 @@
+type Education {
+    degree: String @string(maxLength: 1000)
+    institution: String @string(maxLength: 1000)
+}
+
+type LanguageProficiency {
+    lang: String @string(maxLength: 255)
+    proficiency: String @string(maxLength: 255)
+}
+
+type RatingBreakdown {
+    type: String @string(maxLength: 255)
+    rating: Float @float(min: 0.0, max: 5.0)
+}
+
+type StarCounters {
+    type: String @string(maxLength: 255)
+    count: Int
+}
+
+
+type SkillTests {
+    skill: String @string(maxLength: 255)
+    scorePercentage: Float @float(min: 0.0, max: 1.0)
+    status: String @string(maxLength: 255)
+}
+
+type FiverrProfile @createModel(
+    accountRelation: LIST,
+    description: "Fiverr user profile scraped data"
+) {
+    user_account: String! @string(minLength: 1, maxLength: 255)
+    name: String! @string(maxLength: 255)
+    location: String @string(maxLength: 255)
+    education: [Education] @list(maxLength: 20)
+    description: String @string(maxLength: 5000)
+    overallRating: Float @float(min: 0.0, max: 5.0)
+    languages: [LanguageProficiency] @list(maxLength: 50)
+    skills: [String] @string(maxLength: 255) @list(maxLength: 200)
+    notableClients: [String] @string(maxLength: 255) @list(maxLength: 100)
+    numOfReviews: Int
+    ratingBreakdown: [RatingBreakdown] @list(maxLength: 20)
+    starCounters: [StarCounters] @list(maxLength: 20)
+    skillTests: [SkillTests] @list(maxLength: 100)
+}

@@ -1,0 +1,9 @@
+type PlatformRating @createModel(
+    accountRelation: LIST,
+    description: "Rating from platform"
+) {
+    platform_name: String! @string(minLength: 1, maxLength: 255)
+    user_name: String @string(maxLength: 255)
+    user_id: String @string(maxLength: 255)
+    rating: Float
+}

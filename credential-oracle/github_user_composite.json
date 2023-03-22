@@ -1,0 +1,22 @@
+{
+  "version": "1.0",
+  "models": {
+    "kjzl6hvfrbw6c6iga46b1xj80g1a7m9p7y51qlw4yqyvtudk1yzbfprprcvfuhk": [
+      {
+        "jws": {
+          "payload": "AXESICksgqnKUKg6PuZ01jZCmCk8Rx4Tz-hVStlzbGMcmLgv",
+          "signatures": [
+            {
+              "signature": "mjz85Dadx25wyhq8ElRM3AJIdBkixEqsTwG_ROzf7Dvy7yMFivKTZRVFDG8ySiR7q5t5KFynDzgFIXTnvatGAg",
+              "protected": "eyJhbGciOiJFZERTQSIsImtpZCI6ImRpZDprZXk6ejZNa2pzNGVoUWJUY3pwQkt5a3YxanRKY3hhRm15dDJTc2Q2d21UNEszeGpjbUFEI3o2TWtqczRlaFFiVGN6cEJLeWt2MWp0SmN4YUZteXQyU3NkNndtVDRLM3hqY21BRCJ9"
+            }
+          ],
+          "link": "bafyreibjfsbktssqva5d5ztu2y3efgbjhrdr4e6p5bkuvwltnrrrzgfyf4"
+        },
+        "linkedBlock": "omRkYXRhpmRuYW1lakdpdGh1YlVzZXJldmlld3OgZnNjaGVtYaZkdHlwZWZvYmplY3RlJGRlZnOhcUdpdGh1YkFjaGlldmVtZW50pWR0eXBlZm9iamVjdGV0aXRsZXFHaXRodWJBY2hpZXZlbWVudGhyZXF1aXJlZIJkbmFtZWV4X3ZhbGpwcm9wZXJ0aWVzomRuYW1lo2R0eXBlZnN0cmluZ2ltYXhMZW5ndGgY/2ltaW5MZW5ndGgBZXhfdmFsoWR0eXBlZ2ludGVnZXJ0YWRkaXRpb25hbFByb3BlcnRpZXP0ZyRzY2hlbWF4LGh0dHBzOi8vanNvbi1zY2hlbWEub3JnL2RyYWZ0LzIwMjAtMTIvc2NoZW1haHJlcXVpcmVkhmx1c2VyX2FjY291bnRlbG9naW5pZ2l0aHViX2lkY3VybGR0eXBlamNyZWF0ZWRfYXRqcHJvcGVydGllc7RjYmlvomR0eXBlZnN0cmluZ2ltYXhMZW5ndGgZE4hjdXJso2R0eXBlZnN0cmluZ2ltYXhMZW5ndGgY/2ltaW5MZW5ndGgBZGJsb2eiZHR5cGVmc3RyaW5naW1heExlbmd0aBkD6GRuYW1lo2R0eXBlZnN0cmluZ2ltYXhMZW5ndGgZA+hpbWluTGVuZ3RoAWR0eXBlo2R0eXBlZnN0cmluZ2ltYXhMZW5ndGgY/2ltaW5MZW5ndGgBZWVtYWlso2R0eXBlZnN0cmluZ2ltYXhMZW5ndGgY/2ltaW5MZW5ndGgBZWxvZ2luo2R0eXBlZnN0cmluZ2ltYXhMZW5ndGgY/2ltaW5MZW5ndGgBZ2NvbXBhbnmiZHR5cGVmc3RyaW5naW1heExlbmd0aBj/aGhpcmVhYmxloWR0eXBlZ2Jvb2xlYW5obG9jYXRpb26iZHR5cGVmc3RyaW5naW1heExlbmd0aBkD6Glmb2xsb3dlcnOhZHR5cGVnaW50ZWdlcmlmb2xsb3dpbmehZHR5cGVnaW50ZWdlcmlnaXRodWJfaWShZHR5cGVnaW50ZWdlcmpjcmVhdGVkX2F0omR0eXBlZnN0cmluZ2ltYXhMZW5ndGgY/2pzaXRlX2FkbWluoWR0eXBlZ2Jvb2xlYW5sYWNoaWV2ZW1lbnRzo2R0eXBlZWFycmF5ZWl0ZW1zoWQkcmVmeBkjLyRkZWZzL0dpdGh1YkFjaGlldmVtZW50aG1heEl0ZW1zFGxwdWJsaWNfZ2lzdHOhZHR5cGVnaW50ZWdlcmxwdWJsaWNfcmVwb3OhZHR5cGVnaW50ZWdlcmx1c2VyX2FjY291bnSjZHR5cGVmc3RyaW5naW1heExlbmd0aBj/aW1pbkxlbmd0aAFwdHdpdHRlcl91c2VybmFtZaJkdHlwZWZzdHJpbmdpbWF4TGVuZ3RoGP90YWRkaXRpb25hbFByb3BlcnRpZXP0aXJlbGF0aW9uc6BrZGVzY3JpcHRpb25zR2l0aHViIHVzZXIgZGV0YWlsc29hY2NvdW50UmVsYXRpb26hZHR5cGVkbGlzdGZoZWFkZXKiZW1vZGVsUs4BBAFxcQsACWhtb2RlbC12MWtjb250cm9sbGVyc4F4OGRpZDprZXk6ejZNa2pzNGVoUWJUY3pwQkt5a3YxanRKY3hhRm15dDJTc2Q2d21UNEszeGpjbUFE"
+      }
+    ]
+  },
+  "aliases": {},
+  "views": { "account": {}, "root": {}, "models": {} }
+}
