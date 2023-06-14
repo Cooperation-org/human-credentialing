@@ -13,7 +13,7 @@ const GithubAuth = (props) => {
 
   const navigate = useNavigate();
   const queryParams = useQueryParams();
-  const githubAuthCode = queryParams.get("code");
+  const githubAuthCode = queryParams.get("code");``
 
   const [isRequesting, setIsRequesting] = useState(true);
   const [userInfo, setUserInfo] = useState(null);

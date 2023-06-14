@@ -14,9 +14,10 @@
     "graphiql": "node graphiql_server/graphiql.js"
   },
   "dependencies": {
-    "@ceramicnetwork/http-client": "^2.5.0",
-    "@composedb/devtools": "^0.3.0",
-    "@composedb/devtools-node": "^0.3.0",
+    "@ceramicnetwork/http-client": "^2.23.0",
+    "@composedb/devtools": "^0.4.4",
+    "@composedb/client": "^0.4.4",
+    "@composedb/devtools-node": "^0.4.0",
     "@prisma/client": "^4.8.0",
     "@whatscookin/github_user_badge_scraper": "^1.0.3",
     "axios": "^1.1.2",

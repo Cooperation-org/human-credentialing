@@ -9,11 +9,6 @@ import { fromString } from "uint8arrays/from-string";
 import * as dotenv from "dotenv";
 dotenv.config();
 
-if (!process.env.GITHUB_USER_MODEL_STREAM_ID) {
-  console.error("Missing env variable - GITHUB_USER_MODEL_STREAM_ID.");
-  process.exit(1);
-}
-
 if (!process.env.CERAMIC_NODE_URL) {
   console.error("Missing env variable - CERAMIC_NODE_URL.");
   process.exit(1);

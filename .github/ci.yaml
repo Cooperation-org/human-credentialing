@@ -1,0 +1,27 @@
+name: Build Docker containers
+
+on:
+  push:
+    branches:
+      - stale
+
+env:
+  DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+  DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+  REGISTRY_ADDRESS: ${{ secrets.DOCKER_USERNAME }}
+jobs:
+  build_and_push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Login to Docker Hub
+        run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+
+      - name: Build Docker images
+        run: docker compose -f docker-compose.yaml build
+
+      - name: Push Docker images to Docker Hub
+        run: docker compose -f docker-compose.yaml push
