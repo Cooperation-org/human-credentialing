@@ -17,13 +17,15 @@ def fetch_from_db(query):
     try:
         result = cursor.execute(query).fetchone()
     except Exception as e:
+        print("Exception-1", e)
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
                             detail=f"Something went wrong.")
 
     if not result:
+        print("Exception-2")
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
                             detail=f"Not found.")
-
+    print("Result", result)
     return result
 
 
@@ -39,6 +41,7 @@ def get_github_profile(user_acount):
     # TECHDEBT
     # This API will be removed once composedb implements the feature to query with fields
     # https://forum.ceramic.network/t/queries-by-fields/260/6
+    print("get_github_profile")
     query = f'''
         SELECT stream_id, stream_content 
         FROM {DB_TABLE_GITHUB} 
@@ -48,6 +51,7 @@ def get_github_profile(user_acount):
     try:
         result = fetch_from_db(query)
     except Exception as e:
+        print("Exception", e)
         raise e
     record = format_doc(result)
 
@@ -108,7 +112,7 @@ def get_all_ratings(platform, rating):
         AND json_extract(stream_content, '$.rating')>={rating}
     
     '''
-    
+
     result = None
     try:
         result = fetch_from_db(query)
@@ -120,4 +124,8 @@ def get_all_ratings(platform, rating):
 
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", port=int(PORT), reload=True, host="0.0.0.0")
+    log_config = uvicorn.config.LOGGING_CONFIG
+    log_config["formatters"]["access"]["fmt"] = "%(asctime)s - %(levelname)s - %(message)s"
+    log_config["formatters"]["default"]["fmt"] = "%(asctime)s - %(levelname)s - %(message)s"
+    uvicorn.run("main:app", port=int(PORT), reload=True,
+                host="0.0.0.0", log_config=log_config, log_level="debug")

@@ -1,0 +1,33 @@
+# NOT In Used!!
+# Base image
+FROM node:18-alpine
+
+# Set the working directory
+WORKDIR /app
+
+# Install Ceramic Server and ComposeDB
+# RUN npm install --global @ceramicnetwork/ceramic-daemon@<version> @ceramicnetwork/compose@<version>
+
+RUN npx @ceramicnetwork/cli daemon
+
+# Expose the necessary ports for Ceramic Server and ComposeDB
+EXPOSE 7007
+EXPOSE 8080
+
+# Set environment variables for Ceramic Server and ComposeDB
+ENV DATABASE_URL=postgres://your_username:your_password@your_postgres_host:5432/your_database_name
+ENV NETWORK=mainnet
+
+# Run Ceramic Server with ComposeDB
+CMD ["ceramic-daemon", "--compose"]
+
+
+# # Use this snippet to keep the statestore in a volume
+# docker run -d \
+#   -p 7007:7007 \
+#   -v /path_on_volume_for_daemon_config:/root/.ceramic/daemon.config.json \
+#   -v /path_on_volume_for_ceramic_logs:/root/.ceramic/logs \
+#   -v /path_on_volume_for_ceramic_statestore:/root/.ceramic/statestore \
+#   -e NODE_ENV=production \
+#   --name js-ceramic \
+#   ceramicnetwork/js-ceramic:latest

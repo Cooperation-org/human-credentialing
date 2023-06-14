@@ -1,0 +1,124 @@
+version: '3.7'
+
+services:
+  traefik:
+    container_name: traefik
+    image: 'traefik:v2.5'
+    command:
+      - '--api.insecure=true'
+      - '--providers.docker=true'
+      - '--providers.docker.exposedbydefault=false'
+      - '--entrypoints.web.address=:80'
+      - '--entrypoints.websecure.address=:443'
+      - '--certificatesresolvers.myresolver.acme.tlschallenge=true'
+      - '--certificatesresolvers.myresolver.acme.email=sarthakvijayvergiya@gmail.com'
+      - '--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json'
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes:
+      - '/var/run/docker.sock:/var/run/docker.sock:ro'
+      - './letsencrypt:/letsencrypt'
+    restart: always
+
+  postgres:
+    container_name: postgres
+    image: postgres:latest
+    hostname: postgres
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=fortune
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    restart: always
+
+  composedb-client:
+    container_name: composedb-client
+    image: ${REGISTRY_ADDRESS}/composedb-client:latest
+    build:
+      context: ./composedb-client
+    ports:
+      - 8000:8000
+    depends_on:
+      - ceramicnode
+    environment:
+      GET_QUERY_PORT: 8000
+      ADMIN_DIDS: did:key:z6Mkjs4ehQbTczpBKykv1jtJcxaFmyt2Ssd6wmT4K3xjcmAD
+      DB_PATH: /app/indexing.sqlite
+      DB_TABLE_GITHUB: kjzl6hvfrbw6cbdiwkvw3euxpr4ty5f6rvbakgvqjortgq42f9ih880jjn34c70
+      DB_TABLE_FIVERR: kjzl6hvfrbw6c8s7l00r7ykcprz6jb80cp4zi1b25m82ryq55jn8f0gf8ikb6de
+      DB_TABLE_PLATFORM_RATING: kjzl6hvfrbw6c9kdarapf5hoant44b2a6i2oy43yggsmcdbvj33gx86cx6caeeb
+    volumes:
+      - /home/ubuntu/app/ceramic/indexing.sqlite:/app/indexing.sqlite
+    restart: always
+
+  ceramicnode:
+    container_name: ceramicnode
+    image: ceramicnetwork/js-ceramic:latest
+    ports:
+      - 7007:7007
+    environment:
+      CERAMIC_INDEXING_DB_URI: sqlite:///root/.ceramic/indexing.sqlite
+      NETWORK: testnet-clay
+      NODE_ENV: development
+    volumes:
+      - /home/ubuntu/app/ceramic/daemon.config.json:/root/.ceramic/daemon.config.json
+      - /home/ubuntu/app/ceramic/logs:/root/.ceramic/logs
+      - /home/ubuntu/app/ceramic/statestore:/root/.ceramic/statestore
+      - /home/ubuntu/app/ceramic/indexing.sqlite:/root/.ceramic/indexing.sqlite
+    restart: always
+
+
+  credential-input:
+    container_name: credential-input
+    image: ${REGISTRY_ADDRESS}/credential-input:latest
+    build:
+      context: ./credential-frontend
+    ports:
+      - 3000:3000
+    depends_on:
+      - credential-oracle
+    environment:
+      REACT_APP_GITHUB_AUTH_URL: https://github.com/login/oauth/authorize?client_id=f9d6e5ff6997e5ead4f5
+      REACT_APP_BACKEND_BASE_URL: https://api.linkedtrust.us
+    restart: always
+    labels:
+      - 'traefik.enable=true'
+      - 'traefik.http.routers.credential-input.rule=Host(`cred.linkedtrust.us`)'
+      - 'traefik.http.routers.credential-input.entrypoints=websecure'
+      - 'traefik.http.routers.credential-input.tls.certresolver=myresolver'
+      - 'traefik.http.services.credential-input.loadbalancer.server.port=3000'
+
+  credential-oracle:
+    container_name: credential-oracle
+    image: ${REGISTRY_ADDRESS}/credential-oracle:latest
+    build:
+      context: ./credential-oracle
+    ports:
+      - 8080:8080
+    environment:
+      PORT: 8080
+      GITHUB_CLIENT_SECRET: caef35b5e3ce3331605377835bd0fb27973e8454
+      GITHUB_CLIENT_ID: f9d6e5ff6997e5ead4f5
+      GITHUB_ACCESS_TOKEN_URL: https://github.com/login/oauth/access_token
+      DID_PRIVATE_KEY: 59e83c249b8947d1524a3f5f66326c78759c86d75573027e7bef571c3fddfb90
+      GITHUB_USER_MODEL_STREAM_ID: kjzl6hvfrbw6c5no55wlukc496fea0iujswirvarqnode65vmh5fjb2w926sqph
+      CERAMIC_NODE_URL: http://ceramicnode:7007
+      CERAMIC_QUERY_URL: http://composedb-client:8000
+      COMPOSITE_FILE_NAME: merged_composite.json
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/fortune
+    restart: always
+    depends_on:
+      - ceramicnode
+      - postgres
+    labels:
+      - 'traefik.enable=true'
+      - 'traefik.http.routers.credential-oracle.rule=Host(`api.linkedtrust.us`)'
+      - 'traefik.http.routers.credential-oracle.entrypoints=websecure'
+      - 'traefik.http.routers.credential-oracle.tls.certresolver=myresolver'
+      - 'traefik.http.services.credential-oracle.loadbalancer.server.port=8080'
+volumes:
+  postgres-data:

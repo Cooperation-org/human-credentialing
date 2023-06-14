@@ -2,15 +2,15 @@
 export const definition = {
   models: {
     GithubUser: {
-      id: "kjzl6hvfrbw6c6iga46b1xj80g1a7m9p7y51qlw4yqyvtudk1yzbfprprcvfuhk",
+      id: "kjzl6hvfrbw6cbdiwkvw3euxpr4ty5f6rvbakgvqjortgq42f9ih880jjn34c70",
       accountRelation: { type: "list" },
     },
     FiverrProfile: {
-      id: "kjzl6hvfrbw6c9vg1q5mo65vojdd131ezuakjrunhgca5qk0ty62s9ui3hqjz2z",
+      id: "kjzl6hvfrbw6c8s7l00r7ykcprz6jb80cp4zi1b25m82ryq55jn8f0gf8ikb6de",
       accountRelation: { type: "list" },
     },
     PlatformRating: {
-      id: "kjzl6hvfrbw6cb02b8ypubp8ckvov8e9cn5hw80c8tdbxtbt9a0z59ky0eqb335",
+      id: "kjzl6hvfrbw6c9kdarapf5hoant44b2a6i2oy43yggsmcdbvj33gx86cx6caeeb",
       accountRelation: { type: "list" },
     },
   },
