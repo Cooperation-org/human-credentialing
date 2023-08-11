@@ -6,7 +6,7 @@ services:
     image: postgres:latest
     hostname: postgres
     ports:
-      - 5432:5432
+      - 5433:5432
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
@@ -32,7 +32,7 @@ services:
       DB_TABLE_FIVERR: kjzl6hvfrbw6c8s7l00r7ykcprz6jb80cp4zi1b25m82ryq55jn8f0gf8ikb6de
       DB_TABLE_PLATFORM_RATING: kjzl6hvfrbw6c9kdarapf5hoant44b2a6i2oy43yggsmcdbvj33gx86cx6caeeb
     volumes:
-      - ./composedb-client/indexing.sqlite:/app/indexing.sqlite
+      - ./docker-mnt-files/indexing.sqlite:/app/indexing.sqlite
     restart: always
 
   ceramicnode:
@@ -46,9 +46,9 @@ services:
       NODE_ENV: development
     volumes:
       - ./composedb-client/daemon.config.json:/root/.ceramic/daemon.config.json
-      - ./composedb-client/logs:/root/.ceramic/logs
-      - ./composedb-client/statestore:/root/.ceramic/statestore
-      - ./composedb-client/indexing.sqlite:/root/.ceramic/indexing.sqlite
+      - ./docker-mnt-files/logs:/root/.ceramic/logs
+      - ./docker-mnt-files/statestore:/root/.ceramic/statestore
+      - ./docker-mnt-files/indexing.sqlite:/root/.ceramic/indexing.sqlite
     restart: always
 
   credential-input:
@@ -82,7 +82,7 @@ services:
       CERAMIC_NODE_URL: http://ceramicnode:7007
       CERAMIC_QUERY_URL: http://composedb-client:8000
       COMPOSITE_FILE_NAME: merged_composite.json
-      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/fortune
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5433/fortune
     restart: always
     depends_on:
       - ceramicnode
