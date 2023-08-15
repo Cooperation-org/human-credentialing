@@ -191,16 +191,18 @@ app.post("/fiverr-profile", async (req, res) => {
   profile = removeNullAndUndefined(profile);
 
   let query = CREATE_FIVERR_PROFILE;
-  let variables = { user_account: userAccount, ...profile };
+  let variables = { user_account: userAccount, name: 'placeholder', ...profile };
 
   if (existingProfile) {
     query = UPDATE_FIVERR_PROFILE;
     variables = { id: existingProfile.id, ...variables };
   }
 
+  console.log("About to execute query: " + query);
   const composeDBResult = await compose.executeQuery(query, variables);
 
   if (composeDBResult.errors) {
+    console.log("Composedb error: " + JSON.stringify(composeDBResult));
     return res.status(500).json({ message: composeDBResult.errors[0].message });
   }
 
