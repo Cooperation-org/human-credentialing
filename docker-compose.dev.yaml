@@ -62,7 +62,7 @@ services:
       - credential-oracle
     environment:
       REACT_APP_GITHUB_AUTH_URL: https://github.com/login/oauth/authorize?client_id=f9d6e5ff6997e5ead4f5
-      REACT_APP_BACKEND_BASE_URL: http://credential-oracle:8080
+      REACT_APP_BACKEND_BASE_URL: http://localhost:8080
     restart: always
 
   credential-oracle:
