@@ -6,7 +6,7 @@ services:
     image: postgres:latest
     hostname: postgres
     ports:
-      - 5433:5432
+      - 5432:5432
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
@@ -82,7 +82,7 @@ services:
       CERAMIC_NODE_URL: http://ceramicnode:7007
       CERAMIC_QUERY_URL: http://composedb-client:8000
       COMPOSITE_FILE_NAME: merged_composite.json
-      DATABASE_URL: postgresql://postgres:postgres@postgres:5433/fortune
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/fortune
     restart: always
     depends_on:
       - ceramicnode
