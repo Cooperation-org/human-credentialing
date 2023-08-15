@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useQueryParams } from "../../hooks";
@@ -13,6 +14,7 @@ const GithubAuth = (props) => {
 
   const navigate = useNavigate();
   const queryParams = useQueryParams();
+  // eslint-disable-next-line no-unused-expressions
   const githubAuthCode = queryParams.get("code");
 
   const [isRequesting, setIsRequesting] = useState(true);

@@ -72,6 +72,7 @@ def get_fiverr_profile(user_acount):
     try:
         result = fetch_from_db(query)
     except Exception as e:
+        print("Exception loading data for user {}".format(user_acount))
         raise e
     record = format_doc(result)
 
