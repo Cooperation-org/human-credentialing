@@ -1,25 +1,40 @@
+# Human Credentialing
+Welcome to our open-source project! This guide will help you set up the project locally and understand its functionalities.
 
-# Running Locally
+## Prerequisites
 
-To run the example locally, you will require Docker. Please see this guide for Docker installation instructions. Once Docker is installed and running, from the root of the project run:
+Docker: This project requires Docker for local setup. If you haven't already installed Docker, you can refer to the official Docker installation guide.
+
+## Local Setup
+
+### Launch Docker Environment:
 
 ```
 docker compose -f docker-compose.dev.yaml up // Bring up docker env
 ```
+### Access the Web Interface:
 
-After that, please open http://localhost:3000/ and login with metamask. A button will appear. Click that button to authenticate yourself with your Github account. Once you authenticate, relevant public information will be collected from Github about you and will be stored in composedb. The information that was gathered will appear in the page. Next time you visit http://localhost:3002/ and authenticate with metamask, the page will fetch previously collected information about the user and display on the page.
+   - Navigate to http://localhost:3000/.
+   - Log in using Metamask.
+   - Click the provided button to authenticate with your GitHub account.
+   - Your public GitHub information will be fetched and stored in composedb. This data will be displayed on the page.
+   - For subsequent visits to http://localhost:3002/, the page will automatically retrieve and display the stored information after Metamask       authentication.
 
-Click on `Add your fiverr ratings` to go to the fiverr page. Then click `Get a token` button to get a token. Then, copy the token and paste the token in your fiverr description. Your fiverr ratings and related information will be collected from the page.
+### Integrate Fiverr Ratings:
 
-### Direct update from other platforms
+   - Click on **Add your Fiverr ratings** to navigate to the Fiverr page.
+   - Use the **Get a token** button to generate a token.
+   - Copy the generated token and paste it in your Fiverr description to collect your Fiverr ratings and related information.
 
-Go to http://localhost:3000/cred/platform. Get an api key after entering a name of the platform. Use the API key to update user reviews. This API key should be used as `x-api-key` header.
+### Direct Updates from Other Platforms:
 
-# Conclusion
+   - Visit [http://localhost:3000/cred/platform](http://localhost:3000/cred/platform).
+   - Obtain an API key by specifying the platform's name.
+   - This API key should be used as an `x-api-key` header when you want to update user reviews.
 
-In this example we have demonstrated the steps involved in creating and fulfilling jobs on the HUMAN protocol. This is a very basic example which could easily be extended to other use case's. If you have any problems with the setup or usage of this example, please open an issue and let us know! Feel free to check out the HUMAN github repostory for other useful resources.
+## API Endpoints
+Here's a list of available API endpoints for the project:
 
-# Api Endpoints
 ```Json
 {
    "Apis"{
@@ -32,3 +47,15 @@ In this example we have demonstrated the steps involved in creating and fulfilli
    }
 }
 ```
+
+## About
+
+This project showcases the steps involved in creating and fulfilling jobs on the HUMAN protocol. While this is a fundamental demonstration, its applications can be extended to numerous use cases.
+
+## Support & Contribution
+
+Experiencing issues or have suggestions for improvements? Please [open an issue](https://github.com/Cooperation-org/human-credentialing/issues) and let us know. Your feedback is invaluable.
+
+For more resources and related projects, visit our [HUMAN GitHub repository](https://github.com/Cooperation-org/human-credentialing).
+
+
