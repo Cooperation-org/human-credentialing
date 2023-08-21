@@ -34,6 +34,10 @@ The response will be returned in a simple JSON blob as follows:
 }
 ```
 
+The `id` is a Ceramic Network stream id, that if it has been pinned on a node, will be accessible by anyone using the ceramic network.  It can for example be viewed on the independent Cerscan service here:
+
+https://cerscan.com/mainnet/stream/kjzl6kcym7w8y98a0prwzxtywk13punw98nm8rji8d7t5hwkpaq3uc5bgvc0sy2
+
 ## Local Development
 
 ### Prerequisites
