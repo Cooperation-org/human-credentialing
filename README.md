@@ -5,6 +5,31 @@ This is intended to be run on a trusted, known server in order for the credentia
 
 The credentials are then written to the [Ceramic network](https://ceramic.network/) and may be used permissionlessly by any other Ceramic user, even if the credentials were written by a local docker instance.  Note, however, they are not guaranteed to be continuously available unless some Ceramic node is pinning them.
 
+## Credential Oracle API
+
+When interacting with a running credential oracle, you may retrieve credentials for a given wallet address as follows
+
+```
+curl --location 'https://api.linkedtrust.us/worker-rating/d2138c17c8b987b3290931f40ac92932d62b6b944bb04e5a8ea48088189998c3/0xea3e503Ec7cc25718FB6E7ff7bc161c966489A70' \
+--header 'platform: d2138c17c8b987b3290931f40ac92932d62b6b944bb04e5a8ea48088189998c3'
+```
+
+The response will be returned in a simple JSON blob as follows:
+
+```
+{
+  "message": {
+    "existingRating": {
+      "rating": 1,
+      "user_id": "0xea3e503Ec7cc25718FB6E7ff7bc161c966489A70",
+      "user_name": "arbetamedsarthak",
+      "platform_name": "github",
+      "id": "kjzl6kcym7w8y98a0prwzxtywk13punw98nm8rji8d7t5hwkpaq3uc5bgvc0sy2"
+    }
+  }
+}
+```
+
 ## Prerequisites
 
 Docker: This project requires Docker for local setup. If you haven't already installed Docker, you can refer to the official Docker installation guide.
