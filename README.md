@@ -5,6 +5,22 @@ This is intended to be run on a trusted, known server in order for the credentia
 
 The credentials are then written to the [Ceramic network](https://ceramic.network/) and may be used permissionlessly by any other Ceramic user, even if the credentials were written by a local docker instance.  Note, however, they are not guaranteed to be continuously available unless some Ceramic node is pinning them.
 
+## Table of Contents
+- [Credential Input Interface](#credential-input-interface)
+- [Credential Oracle API](#credential-oracle-api)
+- [Local Development](#local-development)
+  * [Prerequisites](#prerequisites)
+  * [Launch Docker Environment](#launch-docker-environment)
+  * [Access the Web Interface](#access-the-web-interface)
+  * [Integrate Fiverr Ratings](#integrate-fiverr-ratings)
+  * [Direct Updates from Other Platforms](#direct-updates-from-other-platforms)
+- [API Endpoints](#api-endpoints)
+- [Architecture](#architecture)
+- [About](#about)
+- [Support & Contribution](#support--contribution)
+- [License](#license)
+- [Acknowlegements](#acknowledgements)
+
 ## Credential Input Interface
 
 A very simple interface for inputting and signing credentials is publicly available at https://cred.linkedtrust.us/
@@ -52,10 +68,10 @@ docker compose -f docker-compose.dev.yaml up # Bring up docker env
 ### Access the Web Interface:
 
    - Navigate to http://localhost:3000/.
-   - Log in using Metamask.
+   - Log in using MetaMask.
    - Click the provided button to authenticate with your GitHub account.
    - Your public GitHub information will be fetched and stored in composedb. This data will be displayed on the page.
-   - For subsequent visits to http://localhost:3002/, the page will automatically retrieve and display the stored information after Metamask       authentication.
+   - For subsequent visits to http://localhost:3002/, the page will automatically retrieve and display the stored information after MetaMask authentication.
 
 ### Integrate Fiverr Ratings:
 
@@ -102,4 +118,11 @@ Experiencing issues or have suggestions for improvements? Please [open an issue]
 
 For more resources and related projects, visit our [HUMAN GitHub repository](https://github.com/Cooperation-org/human-credentialing).
 
+## License
+
+This project is licensed under the [MIT License](https://opensource.org/license/mit/)
+
+## Acknowledgements
+
+We would like to acknowledge the generous support of [HUMAN Protocol](https://humanprotocol.org) for this work both financially and with feedback and suggestions to make it useful in the network.
 
