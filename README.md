@@ -78,9 +78,15 @@ Here is the list of currently available API endpoints:
 }
 ```
 
+## Architecture
+
+The conceptual architecture of the various components 
+![image](https://github.com/Cooperation-org/human-credentialing/assets/798887/4ced4a91-1947-4fd6-a26a-66bdbb3bc9b4)
+
+
 ## About
 
-This project showcases the steps involved in creating and fulfilling jobs on the HUMAN protocol. While this is a fundamental demonstration, its applications can be extended to numerous use cases.
+This project demonstrates the capability of a Credential Oracle to associate existing credentials on the web with a wallet address, and to provide an API endpoint for the purposes of integrating with a HUMAN Protocol job matcher.
 
 ## Support & Contribution
 
