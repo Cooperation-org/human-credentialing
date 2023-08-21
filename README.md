@@ -30,11 +30,11 @@ The response will be returned in a simple JSON blob as follows:
 }
 ```
 
-## Prerequisites
+## Local Development
 
-Docker: This project requires Docker for local setup. If you haven't already installed Docker, you can refer to the official Docker installation guide.
+### Prerequisites
 
-## Local Setup
+Docker: This project requires Docker for local setup. If you haven't already installed Docker, you can refer to the official Docker installation guide at https://docs.docker.com/.
 
 ### Launch Docker Environment:
 
@@ -62,7 +62,8 @@ docker compose -f docker-compose.dev.yaml up # Bring up docker env
    - This API key should be used as an `x-api-key` header when you want to update user reviews.
 
 ## API Endpoints
-Here's a list of available API endpoints for the project:
+
+Here is the list of currently available API endpoints:
 
 ```Json
 {
