@@ -1,9 +1,9 @@
 # Human Credentialing
-The purpose of the Human Credentialing project is just that - to credential humans, in a way that coincidentially can be used to apply for jobs on the HUMAN Protocol.  Credentials can currently be imported from github or fiverr.  The importing server then signs a credential that the logged in wallet has earned the imported credential.
+The purpose of the Human Credentialing project is just that - to credential humans, in a way that coincidentially can be used to apply for jobs on the [HUMAN Protocol](https://www.humanprotocol.org/).  Credentials can currently be imported from github or fiverr.  The importing server then signs a credential that the logged in wallet has earned the imported credential.
 
 This is intended to be run on a trusted, known server in order for the credentials to be meaningful, but for development you may run it locally using docker.
 
-The credentials are then written to the Ceramic network and may be used permissionlessly by any other Ceramic user, even if the credentials were written by a local docker instance.  Note, however, they are not guaranteed to be continuously available unless some Ceramic node is pinning them.
+The credentials are then written to the [Ceramic network](https://ceramic.network/) and may be used permissionlessly by any other Ceramic user, even if the credentials were written by a local docker instance.  Note, however, they are not guaranteed to be continuously available unless some Ceramic node is pinning them.
 
 ## Prerequisites
 
