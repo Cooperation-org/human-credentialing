@@ -116,8 +116,6 @@ This project demonstrates the capability of a Credential Oracle to associate exi
 
 Experiencing issues or have suggestions for improvements? Please [open an issue](https://github.com/Cooperation-org/human-credentialing/issues) and let us know. Your feedback is invaluable.
 
-For more resources and related projects, visit our [HUMAN GitHub repository](https://github.com/Cooperation-org/human-credentialing).
-
 ## License
 
 This project is licensed under the [MIT License](https://opensource.org/license/mit/)
