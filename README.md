@@ -5,6 +5,10 @@ This is intended to be run on a trusted, known server in order for the credentia
 
 The credentials are then written to the [Ceramic network](https://ceramic.network/) and may be used permissionlessly by any other Ceramic user, even if the credentials were written by a local docker instance.  Note, however, they are not guaranteed to be continuously available unless some Ceramic node is pinning them.
 
+## Credential Input Interface
+
+A very simple interface for inputting and signing credentials is publicly available at https://cred.linkedtrust.us/
+
 ## Credential Oracle API
 
 When interacting with a running credential oracle, you may retrieve credentials for a given wallet address as follows
